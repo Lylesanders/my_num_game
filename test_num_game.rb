@@ -39,5 +39,15 @@ class TestGuessNumberGame2 < Minitest::Test  	#create template for test
         assert_equal(8,Game.new.guess_counter(9))
     end
 
+    def test_guess_count_return_7
+        assert_equal(7,Game.new.guess_counter(8))
+    end
+
+    def test_previous_guess_return_true_for_1
+     
+        assert_equal(true,Game.duplicate_guess([1,2,3,4,5],1))
+
+    end #test_previous_guess_return_true_for_1
+
 
 end #class

@@ -1,17 +1,19 @@
 #num game function
 
-class Game
+class Game 
 
-    attr_accessor :target_number, :results, :guess, :guess_counter, :guess_count, :guess_array
+    attr_accessor :target_number, :results, :guess, :guess_counter, :guess_count, :guess_array#, :duplicate_guess?
     
 
     def initialize
+        #super
         @target_number = target_number
-        @guess = guess
+        @guess = guess.to_i
         @results = results(guess, target_number)
-        @guess_counter = guess_counter(guess_count)
-       @guess_count = guess_count
+        @guess_counter = guess_counter(guess_count.to_i)
+       @guess_count = guess_count.to_i
        @guess_array = Array.new
+       @duplicate_guess? = duplicate_guess?
 
         
     end
@@ -32,11 +34,11 @@ class Game
     end # compare_guess
 
     def guess_counter(guess_count)
-        8
+        guess_count=guess_count-1
     end #guess counter
 
     def duplicate_guess?(guess_array,guess)
-    guess_array.include?guess
+    @guess_array.include?guess
     end #duplicate_guess
 
   
